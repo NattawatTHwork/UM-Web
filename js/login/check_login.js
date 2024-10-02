@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     .catch(error => {
                         console.error('Fetch Error:', error);
                     });
-                window.location.href = pathUrl + 'login.php';
-            }
+                    window.location.href = '/UM-Web/login.php';
+                }
         })
         .catch(error => console.error('Error fetching session token:', error));
 });

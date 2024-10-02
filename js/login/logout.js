@@ -4,7 +4,7 @@ function logout() {
         .then(data => {
             if (data.status === 'success') {
                 console.log('Session token cleared successfully.');
-                window.location.href = pathUrl + 'login.php';
+                window.location.href = '/UM-Web/login.php';
             } else {
                 console.error('Error clearing session token:', data.message);
             }

@@ -49,7 +49,7 @@
 
             <!-- Video Background -->
             <video autoplay muted loop>
-                <source src="<?= $path ?>assets/video/backgroud.mp4" type="video/mp4">
+                <source src="<?= $path ?>assets/video/background2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 

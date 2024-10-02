@@ -10,7 +10,7 @@
             </a>
         </li>
 
-<!-------------------------------------------------------------- -->
+        <!-------------------------------------------------------------- -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#define-parameters" data-bs-toggle="collapse" href="#">
@@ -82,7 +82,7 @@
             </ul>
         </li>
 
-<!-------------------------------------------------------------- -->
+        <!-------------------------------------------------------------- -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#accounting-system" data-bs-toggle="collapse" href="#">
@@ -215,7 +215,7 @@
             </ul>
         </li>
 
-<!-------------------------------------------------------------- -->
+        <!-------------------------------------------------------------- -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#financial-system" data-bs-toggle="collapse" href="#">
@@ -244,7 +244,93 @@
             </ul>
         </li>
 
-<!-------------------------------------------------------------- -->
+        <!-------------------------------------------------------------- -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#sales-system" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>ระบบงานขาย</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="sales-system" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a class="nav-link2 collapsed" data-bs-target="#sales" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-circle"></i><span>การขาย</span>
+                    </a>
+                    <ul id="sales" class="nav-content2 collapse " data-bs-parent="#sales-system">
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>กลุ่ม</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>ประเภท</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="nav-link2 collapsed" data-bs-target="#package" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-circle"></i><span>แพ็คเกจ</span>
+                    </a>
+                    <ul id="package" class="nav-content2 collapse " data-bs-parent="#sales-system">
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>ไลฟ์สไตล์</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>พื้นที่</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="nav-link2 collapsed" data-bs-target="#notification" data-bs-toggle="collapse" href="#">
+                        <i class="bi bi-circle"></i><span>การแจ้งเตือน</span>
+                    </a>
+                    <ul id="notification" class="nav-content2 collapse " data-bs-parent="#sales-system">
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>อีเมล</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>ไลน์</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+
+        <!-------------------------------------------------------------- -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#human-resources-system" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>ระบบทรัพยากรบุคคล</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="human-resources-system" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="/Human_Resources-Web/time_attendances/time_attendance.php">
+                        <i class="bi bi-circle"></i><span>เวลาเข้า-ออกงาน</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Human_Resources-Web/events/event.php">
+                        <i class="bi bi-circle"></i><span>กิจกรรม</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <!-------------------------------------------------------------- -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#user-management" data-bs-toggle="collapse" href="#">
@@ -289,20 +375,6 @@
             <a class="nav-link collapsed" href="#">
                 <i class="bi bi-grid"></i>
                 <span>ระบบการผลิต</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-grid"></i>
-                <span>ระบบงานขาย</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-grid"></i>
-                <span>ระบบทรัพยากรบุคคล</span>
             </a>
         </li>
 
