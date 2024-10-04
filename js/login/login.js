@@ -13,9 +13,16 @@ function handleFormSubmit(event) {
     const jsonData = convertFormDataToJson(formData);
 
     fetchData(jsonData)
-        .then(data => handleFetchmenus(data.token))
-        .then(({ token, data }) => handleFetchResponse(token, data)) // Pass both token and menu data
-        .then(data => handleSessionResponse(data))
+        .then(loginData => {
+            // Now pass the loginData along with the token
+            return handleFetchmenus(loginData.token).then(menuData => ({
+                loginData, // Store the login data to pass forward
+                token: loginData.token, 
+                menuData
+            }));
+        })
+        .then(({ loginData, token, menuData }) => handleFetchResponse(token, menuData, loginData)) // Pass loginData too
+        .then(data => handleSessionResponse(data)) // Now handleSessionResponse will receive the loginData along with menuData
         .catch(error => handleError(error))
         .finally(() => {
             buttonLogin.disabled = false;
@@ -42,18 +49,18 @@ function handleFetchmenus(token) {
         },
     })
         .then(response => response.json())
-        .then(data => ({ token, data })); // Fixed return statement
+        .then(menuData => menuData); // Return only menuData
 }
 
-function handleFetchResponse(token, data) { // Accept token and menuData as parameters
-    if (data.status === 'success') {
+function handleFetchResponse(token, menuData, loginData) { // Added loginData here
+    if (menuData.status === 'success') {
         const payloadBase64 = token.split('.')[1];
         const data_token = JSON.parse(atob(payloadBase64));
 
         const postData = {
             token,
             ...data_token,
-            allowed_menu: data.data
+            allowed_menu: menuData.data
         };
 
         return fetch(pathUrl + 'php/session/set_session_token.php', {
@@ -62,42 +69,15 @@ function handleFetchResponse(token, data) { // Accept token and menuData as para
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(postData)
-        }).then(response => response.json());
-    } else if (menuData.status === 'exist') {
-        Swal.fire({
-            icon: 'error',
-            title: 'เกิดข้อผิดพลาด',
-            text: 'ไม่พบชื่อผู้ใช้'
-        });
-        return Promise.reject('Username does not exist');
-    } else if (menuData.status === 'deactivated') {
-        Swal.fire({
-            icon: 'error',
-            title: 'เกิดข้อผิดพลาด',
-            text: 'บัญชีถูกยกเลิก'
-        });
-        return Promise.reject('Account is deactivated');
-    } else if (menuData.status === 'inactive') {
-        Swal.fire({
-            icon: 'error',
-            title: 'เกิดข้อผิดพลาด',
-            text: 'บัญชีถูกปิดใช้งาน'
-        });
-        return Promise.reject('Account is inactive');
-    } else if (menuData.status === 'incorrect') {
-        Swal.fire({
-            icon: 'error',
-            title: 'เกิดข้อผิดพลาด',
-            text: 'รหัสผ่านไม่ถูกต้อง'
-        });
-        return Promise.reject('Incorrect password');
+        })
+        .then(response => response.json())
+        .then(sessionResponse => ({
+            ...sessionResponse,
+            loginData, // Include the original loginData in the response
+            menuData // Also include the menuData
+        })); // Include both session response and loginData
     } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'เกิดข้อผิดพลาด',
-            text: 'เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ'
-        });
-        return Promise.reject('Unknown error');
+        return handleErrorByMenuStatus(loginData);
     }
 }
 
@@ -119,5 +99,44 @@ function handleSessionResponse(data) {
             title: 'เกิดข้อผิดพลาด',
             text: 'Session could not be set.'
         });
+    }
+}
+
+function handleErrorByMenuStatus(loginData) {
+    if (loginData.status === 'exist') {
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด',
+            text: 'ไม่พบชื่อผู้ใช้'
+        });
+        return Promise.reject('Username does not exist');
+    } else if (loginData.status === 'deactivated') {
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด',
+            text: 'บัญชีถูกยกเลิก'
+        });
+        return Promise.reject('Account is deactivated');
+    } else if (loginData.status === 'inactive') {
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด',
+            text: 'บัญชีถูกปิดใช้งาน'
+        });
+        return Promise.reject('Account is inactive');
+    } else if (loginData.status === 'incorrect') {
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด',
+            text: 'รหัสผ่านไม่ถูกต้อง'
+        });
+        return Promise.reject('Incorrect password');
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'เกิดข้อผิดพลาด',
+            text: 'เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ'
+        });
+        return Promise.reject('Unknown error');
     }
 }

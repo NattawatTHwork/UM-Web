@@ -9,7 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <?php include_once './components/header_link.php' ?>
+    <?php include_once './components/header_link_gb.php' ?>
 </head>
 
 <body>
@@ -666,7 +666,7 @@
 
     </main><!-- End #main -->
 
-    <?php include_once './components/footer.php' ?>
+    <?php include_once './components/footer_gb.php' ?>
 
 </body>
 

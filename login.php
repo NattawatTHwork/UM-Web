@@ -9,7 +9,7 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <?php include_once './components/header_link.php' ?>
+    <?php include_once './components/header_link_gb.php' ?>
 
     <style>
         body {
@@ -114,7 +114,7 @@
         </div>
     </main><!-- End #main -->
 
-    <?php include_once './components/footer.php' ?>
+    <?php include_once './components/footer_gb.php' ?>
 
     <script src="<?= $path ?>js/common/convert_form_data_to_json.js"></script>
     <script src="<?= $path ?>js/common/handle_error.js"></script>

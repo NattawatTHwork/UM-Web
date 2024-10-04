@@ -1,4 +1,4 @@
-<?php $path = dirname(dirname($_SERVER['SCRIPT_NAME'])) . '/'; ?>
+<?php $path = dirname($_SERVER['SCRIPT_NAME']) . '/'; ?>
 <?php $path_link = '/' ?>
 <!-- Favicons -->
 <link href="<?= $path ?>assets/img/favicon.png" rel="icon">
