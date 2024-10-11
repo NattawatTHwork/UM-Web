@@ -1,8 +1,8 @@
 <?php $path = dirname(dirname($_SERVER['SCRIPT_NAME'])) . '/'; ?>
 <?php $path_link = '/' ?>
 <!-- Favicons -->
-<link href="<?= $path ?>assets/img/favicon.png" rel="icon">
-<link href="<?= $path ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<link href="<?= $path ?>assets/img/logo_cloudmate.jpg" rel="icon">
+<link href="<?= $path ?>assets/img/logo_cloudmate.jpg" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
 <link href="https://fonts.gstatic.com" rel="preconnect">
