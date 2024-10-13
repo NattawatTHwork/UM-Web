@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Role Update</title>
+    <title>แก้ไขสิทธิ์</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Role Update</h1>
+            <h1>แก้ไขสิทธิ์</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Role</li>
-                    <li class="breadcrumb-item active">Role Update</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">สิทธิ์</li>
+                    <li class="breadcrumb-item active">แก้ไขสิทธิ์</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
